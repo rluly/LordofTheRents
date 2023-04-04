@@ -1,0 +1,33 @@
+.icon {
+  float: right;
+  cursor: pointer;
+  font-size: 25px;
+  margin-top: -15px;
+  margin-right: -15px;
+}
+
+.icon:hover {
+  color: #df9029;
+}
+
+.show-all {
+  cursor: pointer;
+}
+::ng-deep.mat-dialog-container {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  box-shadow: 8px 8px#000000;
+  margin: 10px;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none;
+}
+table {
+  text-align: center;
+  margin-right: -10px;
+}

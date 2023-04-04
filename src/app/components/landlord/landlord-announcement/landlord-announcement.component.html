@@ -1,0 +1,63 @@
+<div class="ann-cont" style="padding-top: 2.5rem; padding-bottom: 2.5rem">
+  <div
+    class="container-fluid d-flex justify-content-center"
+    style="overflow-x: auto"
+  >
+    <div id="title">Announcements</div>
+
+    <div *ngIf="isLoading" class="d-flex justify-content-center load">
+      <div
+        style="width: 3rem; height: 3rem; margin-bottom: 10px"
+        class="spinner-border"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+      Loading...
+    </div>
+
+    <table
+      *ngIf="tableVisible && !isLoading"
+      class="table"
+      aria-label="Task Table"
+    >
+      <thead
+        style="
+          --tw-bg-opacity: 1;
+          background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+        "
+      >
+        <tr>
+          <th scope="col" class="tablehead">Subject</th>
+          <th scope="col" class="tablehead">Tenants</th>
+          <th scope="col" class="tablehead">Date</th>
+          <th scope="col" class="tablehead">Time</th>
+          <th scope="col" class="tablehead">Info</th>
+        </tr>
+      </thead>
+      <tbody
+        class="divide-y divide-gray-200"
+        style="
+          --tw-bg-opacity: 1;
+          background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+        "
+      >
+        <tr *ngFor="let announcement of announcements; let i = index">
+          <td data-label="Subject - ">{{ announcement.subject }}</td>
+          <td data-label="Name - ">{{ namesByAnnouncements[i] }}</td>
+          <td data-label="Date- ">{{ announcement.date }}</td>
+          <td data-label="Time - ">{{ announcement.time }}</td>
+          <td id="specificDialog" (click)="openSpecificDialog(announcement.id)">
+            <fa-icon class="icon" [icon]="faCircleInfo"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      class="container-fluid d-flex justify-content-center"
+      *ngIf="this.announcements.length === 0 && !isLoading"
+    >
+      <h4>You have no current announcements</h4>
+    </div>
+  </div>
+</div>

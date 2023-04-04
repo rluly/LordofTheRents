@@ -1,0 +1,12 @@
+<div class="pay-form-container">
+  <h1 class="pay-heading">
+    Your Due Amount is:
+    <span
+      >$<input class="amount" [(ngModel)]="amount" placeholder="{{ amount }}"
+    /></span>
+  </h1>
+  <div class="reg-card">
+    <div id="myPaypalButtons"></div>
+    <div #paypal></div>
+  </div>
+</div>

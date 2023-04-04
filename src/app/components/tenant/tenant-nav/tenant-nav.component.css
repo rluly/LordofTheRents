@@ -1,0 +1,61 @@
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: black;
+}
+.navbar-collapse {
+  justify-content: space-between;
+}
+.navbar {
+  padding: 15px 100px;
+  z-index: 2;
+}
+.svg-top {
+  position: absolute;
+  z-index: 2;
+}
+.nav-link {
+  margin-left: 60px;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+.nav-link:hover {
+  color: #fac683;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1875px) {
+  .svg-top {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 1240px) {
+  .svg-top {
+    margin-top: 60px;
+  }
+  .navbar {
+    padding: 15px 60px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .svg-top {
+    margin-top: 60px;
+  }
+  .navbar {
+    padding: 15px 10px;
+  }
+}
+@media only screen and (max-width: 855px) {
+  .svg-top {
+    margin-top: 80px;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .svg-top {
+    margin-top: 100px;
+  }
+}

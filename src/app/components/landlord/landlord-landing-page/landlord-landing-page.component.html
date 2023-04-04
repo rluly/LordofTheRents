@@ -1,0 +1,45 @@
+<div class="content d-flex flex-column min-vh-100">
+  <div
+    class="main info-container container-fluid d-flex justify-content-center"
+  >
+    <p class="landlord-info" data-test-id="greeting">
+      Welcome <span class="name" data-test-id="name">{{ tempName }}</span> to
+      Lord of the Rents' Landlord Portal.
+    </p>
+  </div>
+  <div
+    class="main elements-container container-fluid d-flex justify-content-center"
+  >
+    <ul class="elements-list">
+      <li class="element tenants" routerLink="/landlord/tenants">
+        <span
+          ><fa-icon [icon]="faPeopleGroup" style="color: #df9029"></fa-icon
+        ></span>
+        <h3>Tenants</h3>
+        <p>
+          View all of your tenants and their corresponding information, such as
+          name, phone number, and email. View past messages sent with your
+          tenants and compose new messages.
+        </p>
+      </li>
+      <li class="element tasks" routerLink="/landlord/tasks">
+        <span><fa-icon [icon]="faCheck" style="color: #df9029"></fa-icon></span>
+        <h3>Tasks</h3>
+        <p>
+          View all upcoming tasks, such as maintenance requests, repairs, etc.
+        </p>
+      </li>
+      <li class="element announcements" routerLink="/landlord/announcements">
+        <span
+          ><fa-icon [icon]="faBullhorn" style="color: #df9029"></fa-icon
+        ></span>
+        <h3>Announcements</h3>
+        <p>
+          Send announcements to tenants to alert them about late rent, expected
+          power outages, facility maintenance, etc.
+        </p>
+      </li>
+    </ul>
+  </div>
+  <app-footer></app-footer>
+</div>

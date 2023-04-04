@@ -1,0 +1,50 @@
+<div class="form-container">
+  <div class="reg-card">
+    <form name="form" class="reg-form">
+      <div class="heading-cont">
+        <img
+          class="heading-img"
+          src="../../../../assets/images/landing/home-blob.svg"
+          alt=""
+        />
+        <h1 class="form-heading">Welcome Back!</h1>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-input"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-input"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <p class="form-input-reg">
+        Don't have an account?
+        <a class="login-link" (click)="signupEvent()">Sign up!</a>
+      </p>
+
+      <div class="form-group">
+        <button class="form-input-btn" (click)="loginEvent()">
+          <span *ngIf="!isLoading">Login</span>
+          <div *ngIf="isLoading" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

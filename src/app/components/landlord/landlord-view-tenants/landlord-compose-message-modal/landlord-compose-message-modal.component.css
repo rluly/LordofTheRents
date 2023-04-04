@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+form {
+  width: 100%;
+}
+.icon {
+  right: 0;
+  cursor: pointer;
+  font-size: 25px;
+  margin-top: -10px;
+}
+.icon:hover {
+  color: #df9029;
+}
+
+::ng-deep.mat-dialog-container {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  box-shadow: 8px 8px#000000;
+  margin: 10px;
+}
+.buttons {
+  float: right;
+}
+
+button {
+  margin: 5px;
+}
+
+.message {
+  height: 15em;
+}
+
+.message-sent {
+  float: left;
+  padding-top: 10px;
+}
+.form-input-btn {
+  background: #ffc06d;
+  border: 2px solid #ffc06d;
+  border-radius: 8px;
+  box-shadow: 6px 6px#000000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 15px 5px 5px 5px;
+  padding: 5px 20px;
+  font-family: "Space Grotesk", sans-serif;
+  transition: 0.14s ease;
+}
+
+.form-input-btn:hover {
+  border: 2px solid #fac683;
+  background: #fac683;
+  box-shadow: 6px 6px#df9029;
+  font-weight: 400;
+}
+.form-input {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  box-shadow: 4px 4px#000000;
+  background: #ffffff;
+  margin: 0px 0px 10px 0px;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  transition: 0.14s ease;
+}
+.form-input:hover::placeholder {
+  color: #000000;
+}
+.form-input:hover {
+  background: #fac683;
+}
+
+.form-input:focus {
+  box-shadow: 5px 5px#df9029;
+  border: 2px solid #fac683;
+  background: #fac683;
+  color: #000000;
+  outline: none;
+}

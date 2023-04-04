@@ -1,0 +1,138 @@
+.content {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px;
+  background-color: #f9eddd;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  padding: 0px;
+}
+.name {
+  color: #fac683;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.info-container {
+  width: 100%;
+}
+
+.landlord-info {
+  margin-top: 100px;
+  width: 28em;
+  height: fit-content;
+  color: black;
+  padding: 20px;
+  font-size: min(3vw, 35px);
+  text-align: center;
+  max-width: 800px;
+  font-weight: 600;
+}
+
+.elements-list {
+  display: inline-flex;
+  text-align: center;
+  list-style-type: none;
+  color: white;
+  z-index: 3;
+}
+
+.element {
+  width: 40%;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  box-shadow: 8px 8px#000000;
+  color: #000000;
+  margin: 20px;
+  line-height: 5em;
+  font-size: min(4.4vw, 24px);
+  transition: 0.2s ease;
+}
+
+.element:hover {
+  cursor: pointer;
+  border: 2px solid #fac683;
+  background: #fac683;
+  box-shadow: 6px 6px#df9029;
+  font-weight: 400;
+}
+
+.element span fa-icon {
+  font-size: min(4.4vw, 36px);
+}
+
+.element h3 {
+  margin-top: -20px;
+  font-size: min(3vw, 36px);
+  font-weight: 900;
+}
+
+.element p {
+  font-size: min(3vw, 25px);
+  padding: 20px;
+  margin: 20px;
+  margin-top: 20px;
+  line-height: normal;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    padding: 0px;
+  }
+
+  .landlord-info {
+    margin-left: 6%;
+    margin-bottom: 50px;
+    padding-bottom: 0px;
+  }
+
+  .elements-list {
+    display: block;
+    width: 90%;
+    margin-bottom: 150px;
+  }
+
+  ol,
+  ul {
+    padding-left: 0rem;
+  }
+  .element {
+    width: 100%;
+    height: fit-content;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 10px;
+    height: 35%;
+  }
+
+  .element p {
+    margin: 10px;
+    margin-top: 0px;
+    line-height: normal;
+    padding: 20px;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .landlord-info {
+    margin-top: 70px;
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .landlord-info {
+    margin-top: 40px;
+    font-size: 20px;
+  }
+}

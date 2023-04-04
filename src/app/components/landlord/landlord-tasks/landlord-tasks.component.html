@@ -1,0 +1,71 @@
+<div class="tasks-cont">
+  <div
+    class="container-fluid d-flex justify-content-center"
+    style="overflow-x: auto"
+  >
+    <div id="title">Tasks</div>
+
+    <div *ngIf="isTaskLoaded" class="d-flex justify-content-center load">
+      <div
+        style="width: 3rem; height: 3rem; margin-bottom: 10px"
+        class="spinner-border"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+      Loading...
+    </div>
+
+    <table *ngIf="!isTaskLoaded" class="table" aria-label="Task Table">
+      <thead>
+        <tr>
+          <th scope="col">Task</th>
+          <th scope="col">Time</th>
+          <th scope="col">Date</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td data-label="Task - ">
+            {{ task.task.includes(":") ? task.task.split(":")[0] : task.task }}
+          </td>
+          <td data-label="Time - ">{{ task.time }}</td>
+          <td data-label="Date - ">{{ task.date | date }}</td>
+          <td>
+            <button
+              class="btn btn-danger delete-{{ task.id }}"
+              (click)="deleteTask(task)"
+              attr.aria-label="Delete for task {{ task.task }}"
+            >
+              <span *ngIf="!isTaskDeleteLoaded">Delete</span>
+              <div
+                *ngIf="isTaskDeleteLoaded"
+                class="d-flex justify-content-center"
+              >
+                <div
+                  class="spinner-border"
+                  role="status"
+                  style="
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    margin: 2px 13px 2px 13px;
+                  "
+                >
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="container-fluid d-flex justify-content-center"
+    *ngIf="this.tasks.length === 0 && !isTaskLoaded"
+  >
+    <h4>You have no current tasks</h4>
+  </div>
+</div>

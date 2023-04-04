@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex justify-content-end flex-row-reverse">
+  <div>
+    <div class="subject"><span>Subject: </span>{{ announcement?.subject }}</div>
+    <div class="message">
+      <span>Message: </span>
+      {{ announcement?.message }}
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-danger"
+      style="
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+        margin-right: 0.5rem;
+      "
+      (click)="deleteAnnouncement()"
+    >
+      Delete
+    </button>
+  </div>
+</div>

@@ -1,0 +1,296 @@
+<div class="form-container">
+  <div class="reg-card">
+    <form class="reg-form" [formGroup]="regForm" (ngSubmit)="submit()">
+      <div *ngIf="step == 1" formGroupName="userDetails" class="reg-form">
+        <div class="heading-cont">
+          <img
+            class="heading-img"
+            src="../../../../assets/images/landing/home-blob.svg"
+            alt=""
+          />
+          <h1 class="form-heading">Join Us!</h1>
+        </div>
+
+        <div class="name-cont">
+          <input
+            placeholder="Enter First Name"
+            formControlName="firstName"
+            type="text"
+            class="form-input"
+            style="border-radius: 8px 0 0 8px"
+          />
+
+          <input
+            placeholder="Enter Last Name"
+            formControlName="lastName"
+            type="text"
+            class="form-input"
+            style="border-radius: 0 8px 8px 0"
+          />
+        </div>
+
+        <span
+          *ngIf="userDetails.firstName.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;First Name is
+          Required
+        </span>
+        <span
+          *ngIf=" userDetails.firstName.errors?.['minlength'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;First Name must be at
+          least 2 characters.
+        </span>
+
+        <span
+          *ngIf="userDetails.lastName.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Last Name is Required
+        </span>
+        <span
+          *ngIf="userDetails.lastName.errors?.['minlength'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Last Name must be at
+          least 2 characters.
+        </span>
+
+        <input
+          placeholder="Enter Email"
+          formControlName="email"
+          type="text"
+          class="form-input"
+        />
+        <span
+          *ngIf="userDetails.email.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Email is Required
+        </span>
+        <span
+          *ngIf="userDetails.email.errors?.['email'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Email must be valid
+        </span>
+
+        <div class="pass-cont">
+          <input
+            placeholder="Enter Password"
+            formControlName="password"
+            [type]="formPassword"
+            class="form-input"
+          />
+          <div class="icon-container" (click)="showPass()">
+            <fa-icon *ngIf="passShow" [icon]="faEye"></fa-icon>
+            <fa-icon *ngIf="!passShow" [icon]="faEyeSlash"></fa-icon>
+          </div>
+        </div>
+
+        <span
+          *ngIf="userDetails.password.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Password is Required
+        </span>
+        <span
+          *ngIf="userDetails.password.errors?.['minlength'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Password must be
+          atleast 6 characters long
+        </span>
+        <span
+          *ngIf="userDetails.password.errors?.['pattern'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Password must contain
+          at least one number, alphabet and a special character($@$!%*?&)
+        </span>
+        <div class="pass-cont">
+          <input
+            placeholder="Confirm Password"
+            formControlName="cPassword"
+            [type]="formcPassword"
+            class="form-input"
+          />
+          <div class="icon-container" (click)="showcPass()">
+            <fa-icon *ngIf="cpassShow" [icon]="faEye"></fa-icon>
+            <fa-icon *ngIf="!cpassShow" [icon]="faEyeSlash"></fa-icon>
+          </div>
+        </div>
+
+        <span
+          *ngIf="userDetails.cPassword.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Confirm Password is
+          Required
+        </span>
+
+        <span *ngIf="!passMatch && submitted" class="form-error">
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp; Password Must Equal
+          Confirm Password
+        </span>
+      </div>
+
+      <div class="reg-form" *ngIf="step == 2" formGroupName="contactDetails">
+        <div class="heading-cont">
+          <img
+            class="heading-img"
+            src="../../../../assets/images/landing/home-blob.svg"
+            alt=""
+          />
+          <h1 class="form-heading">Welcome!</h1>
+        </div>
+
+        <input
+          placeholder="Enter Phone Number"
+          formControlName="phone"
+          type="number"
+          class="form-input"
+        />
+        <span
+          *ngIf="contactDetails.phone.errors?.['required'] && submitted"
+          class="form-error"
+        >
+          <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;Phone is Required
+        </span>
+
+        <div class="user-check">
+          Are you a?
+          <ul class="user-choice">
+            <li style="margin-right: 10px">
+              <input
+                type="radio"
+                value="tenant"
+                formControlName="user"
+                (click)="showDropDown('tenantDrop')"
+              />
+              <label for="tenant">Tenant</label>
+            </li>
+            <li style="margin-left: 10px">
+              <input
+                type="radio"
+                value="landlord"
+                formControlName="user"
+                (click)="showDropDown('hide')"
+              />
+              <label for="landlord">Landlord</label>
+            </li>
+          </ul>
+        </div>
+
+        <div [hidden]="!formTenant">
+          <select
+            name="choose"
+            id="choose"
+            formControlName="landlord"
+            class="form-input-select-reg"
+          >
+            <option value="" disabled selected>Select your Landlord</option>
+            <option [ngValue]="item.id" *ngFor="let item of landlords">
+              {{ item.firstName }}
+            </option>
+          </select>
+        </div>
+        <div [hidden]="!formLandlord"></div>
+
+        <div class="policy-check">
+          <div>
+            <input
+              type="checkbox"
+              name="acceptTerms"
+              formControlName="policy"
+              class="checkbox"
+            />
+          </div>
+          <div>
+            <label for="policy"
+              >I accept I am 13+ years of age and I have read and accept the
+              <a
+                class="check-link"
+                href="https://www.termsandcondiitionssample.com/live.php?token=O1d5yb5KfKXEwT534XqbW15fmR2jcZBq"
+                target="_blank"
+                rel="noreferrer"
+              >
+                TOS and Privacy Rules.
+              </a>
+            </label>
+            <span
+              *ngIf="contactDetails.policy.errors?.['required'] && submitted"
+              class="form-error"
+            >
+              <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp;You must accept
+              our Policies to Continue.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reg-form" *ngIf="step == 3">
+        <h1 class="form-heading" style="margin-top: 50px">
+          Check your Email for the Confirmation Code!
+        </h1>
+        <div class="card-body" *ngIf="isConfirm">
+          <div class="row">
+            <div class="col mb-2 code">
+              <input
+                style="margin-top: 30px"
+                type="text"
+                id="code"
+                name="code"
+                class="form-input"
+                #code="ngModel"
+                [(ngModel)]="user.code"
+                placeholder="Confirmation Code"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="step == 1" class="next-div">
+        <button type="submit" class="form-input-btn" *ngIf="step == 1">
+          Next
+          <fa-icon style="padding-top: 10px" [icon]="faCaretRight"></fa-icon>
+        </button>
+        <p class="form-input-reg">
+          Already have an account?
+          <a class="login-link" routerLink="/login">Login</a>
+        </p>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="form-input-btn"
+          *ngIf="step == 2"
+          (click)="previous()"
+          style="margin-right: 15px"
+        >
+          <fa-icon style="padding-top: 10px" [icon]="faCaretLeft"></fa-icon>
+          Go Back
+        </button>
+        <button type="submit" class="form-input-btn" *ngIf="step == 2">
+          Next
+          <fa-icon style="padding-top: 10px" [icon]="faCaretRight"></fa-icon>
+        </button>
+        <button
+          type="submit"
+          (click)="confirmSignUp()"
+          class="form-input-btn"
+          *ngIf="step == 3"
+          style="margin-bottom: 150px"
+        >
+          Submit
+          <fa-icon style="padding-top: 50px" [icon]="faCaretRight"></fa-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

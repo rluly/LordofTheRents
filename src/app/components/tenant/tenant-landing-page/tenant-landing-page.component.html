@@ -1,0 +1,44 @@
+<div class="content d-flex flex-column min-vh-100">
+  <div
+    class="main info-container container-fluid d-flex justify-content-center"
+  >
+    <p class="tenant-info">
+      Welcome <span class="name">{{ tempName }}</span> to Lord of the Rents'
+      Tenant Portal.
+    </p>
+  </div>
+  <div
+    class="main elements-container container-fluid d-flex justify-content-center"
+  >
+    <ul class="elements-list">
+      <li class="element announcements" routerLink="/tenant/announcements">
+        <span
+          ><fa-icon [icon]="faBullhorn" style="color: #df9029"></fa-icon
+        ></span>
+        <h3>Announcements</h3>
+        <p>
+          View announcements sent from your landlord about late rent, expected
+          power outages, facility maintenance, etc.
+        </p>
+      </li>
+      <li class="element payment" routerLink="/tenant/payment">
+        <span
+          ><fa-icon [icon]="faDollarSign" style="color: #df9029"></fa-icon
+        ></span>
+        <h3>Payment</h3>
+        <p>
+          View outstanding balances for rent and other expenses charged by your
+          landlord. Make payments using a credit card or PayPal account.
+        </p>
+      </li>
+      <li class="element schedule" routerLink="/tenant/schedule">
+        <span
+          ><fa-icon [icon]="faCalendar" style="color: #df9029"></fa-icon
+        ></span>
+        <h3>Schedule</h3>
+        <p>Schedule events, such as maintenance requests, repairs, etc.</p>
+      </li>
+    </ul>
+  </div>
+  <app-footer></app-footer>
+</div>

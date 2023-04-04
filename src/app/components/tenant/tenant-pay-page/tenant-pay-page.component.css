@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+.name-cont {
+  display: flex;
+  justify-content: space-between;
+}
+.pay-form-container {
+  background: url(../../../../assets/images/tenant/pay-bg.png) no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  max-width: 100vw;
+  height: 100vh;
+  position: relative;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reg-card {
+  z-index: 2;
+  text-align: center;
+  width: 100vw;
+  background: #ffffff00;
+  padding: 30px;
+  margin: 0px 30px 200px 30px;
+}
+
+.pay-heading {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  box-shadow: 6px 6px#000000;
+  padding: 30px;
+  margin: 200px 20px 0px 20px;
+  font-size: 45px;
+  font-weight: 900;
+  background: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  text-align: center;
+}
+
+.amount {
+  color: #fac683;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  border: none;
+  border-bottom: 2px black solid;
+  width: 130px;
+  text-align: center;
+}
+.amount:focus,
+.amount:hover {
+  border-bottom: 2px #df9029 solid;
+  outline: none;
+}
+::ng-deep.paypal-button.paypal-button-color-gold {
+  background: black !important;
+  border: 2px black solid !important;
+}
+
+@media only screen and (max-width: 450px) {
+  .reg-card {
+    padding: 10px;
+    margin: 40px 12px 0 12px;
+  }
+
+  .pay-heading {
+    margin: 50px 20px 0px 20px;
+    padding: 20px;
+    font-size: 35px;
+  }
+}

@@ -1,0 +1,47 @@
+<div class="pay-form-container">
+  <div class="reg-card">
+    <form class="reg-form" [formGroup]="scheduleForm" (ngSubmit)="submit()">
+      <h1 class="form-heading">Schedule a Meeting!</h1>
+      <textarea
+        id="txtArea"
+        rows="10"
+        cols="70"
+        type="text"
+        formControlName="reason"
+        class="form-input"
+        placeholder="Reason For Meeting (Repairs, Maintainance etc)..."
+      ></textarea>
+
+      <span *ngIf="invalidSubmitted" class="form-error">
+        <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp; You must choose a
+        Reason for your Meeting
+      </span>
+
+      <input
+        type="datetime-local"
+        formControlName="date"
+        class="form-input"
+        placeholder="Select a Time and Date"
+      />
+
+      <span *ngIf="invalidSubmitted" class="form-error">
+        <fa-icon [icon]="faCircleXmark"></fa-icon> &nbsp; You must choose a Time
+        for your Meeting
+      </span>
+
+      <div>
+        <button style="margin-right: 10px" type="submit" class="form-input-btn">
+          Schedule
+        </button>
+        <button
+          style="margin-left: 10px"
+          type="button"
+          class="form-input-btn"
+          (click)="reset()"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
